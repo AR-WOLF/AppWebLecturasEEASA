@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="text-center p-2">
+        <h3>Lista Mediciones</h3>
+    </div>
+
+    <table class="table table-hover">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ruta - Sector</th>
+            <th scope="col">Cuenta</th>
+            <th scope="col">Medidor</th>
+            <th scope="col">Nombres - Apellidos</th>
+            <th scope="col">Direccion</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr role="button" *ngFor="let usuario of lista_mediciones | paginate: { itemsPerPage: 20, currentPage: p }; let i = index" (click)="lanzarLectura(usuario.cliente.clc_cliente_id)">
+                <th scope="row">{{20*(p-1)+(i+1)}}</th>
+                <td>{{usuario.medidor.clm_ruta}} - {{usuario.medidor.clm_sector}}</td>
+                <td>{{usuario.cliente.clc_cliente_id}}</td>
+                <td>{{usuario.medidor.clm_medidor}}</td>
+                <td>{{usuario.cliente.clc_nombre}} {{usuario.cliente.clc_apellido}}</td>
+                <td>{{usuario.cliente.clc_direccion}}</td>
+            </tr>
+        </tbody>
+      </table>
+      <div *ngIf="spin_loader == false">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+
+      <div class="text-center" *ngIf="spin_loader">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+      </div>
+
+
+</div>
+
+
+

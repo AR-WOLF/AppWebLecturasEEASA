@@ -1,0 +1,47 @@
+<section class="vh-100 background_login">
+
+    <div class="container py-5 h-100 on-rotate">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="container-fluid mb-4 animate__animated animate__backInDown">
+                            <img class="form-logo" src="../../../../assets/EEASA-LOGO.png" alt="">
+                        </div>
+
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                            <div class="input-group input-group-lg mb-4">
+                                <span class="input-group-text py-0"><i class="fa-solid fa-user"></i></span>
+                                <input formControlName="usuario" type="text" class="form-control" [ngClass]="{'is-invalid': loginForm.get('usuario')?.invalid && (loginForm.get('usuario')?.dirty || loginForm.get('usuario')?.touched) }"
+                                    placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group input-group-lg mb-4">
+                                <span class="input-group-text py-0"><i class="fa-solid fa-key"></i></span>
+                                <input formControlName="contrasena" type="password" class="form-control" [ngClass]="{'is-invalid': loginForm.get('contrasena')?.invalid && (loginForm.get('contrasena')?.dirty || loginForm.get('contrasena')?.touched) }"
+                                    placeholder="Clave" aria-label="Clave" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div *ngIf="alert_danger" class="alert alert-danger alert-dismissible fade show p-2"
+                                role="alert">
+                                Datos incorrectos!
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="d-grid gap-2 col-7 mx-auto">
+                                <button [disabled]="login_loader" type="submit" class="btn btn-primary btn-lg btn-block"
+                                    type="submit">
+                                    <span *ngIf="this.login_loader == true" class="spinner-border spinner-border-sm"
+                                        role="status" aria-hidden="true"></span>
+                                    Ingresar
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

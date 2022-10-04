@@ -1,0 +1,60 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283593;">
+
+
+
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" (click)="leftAligned.toggle()"
+            aria-controls="navbarLeftAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="logo-brand-center mx-auto">
+            <!-- Logo -->
+            <a class="navbar-brand p-0" [routerLink]="['lecturas']">
+                <img src="../../../assets/logo-eeasa-label.svg" height="65" alt="" loading="lazy"
+                    style="margin-top: -1px;" />
+            </a>
+        </div>
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" mdbCollapse #leftAligned="mdbCollapse">
+
+
+
+
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a type="button" class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['lecturas']">Lecturas</a>
+                </li>
+                <li class="nav-item">
+                    <a type="button" class="nav-link" [routerLinkActive]="['active']" [routerLink]="['lista-mediciones']">Lista Mediciones</a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <ul class="navbar-nav flex-row align-items-center">
+            <!-- Left links -->
+            <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" mdbDropdownToggle
+                    aria-expanded="false">
+                    <i class="fa-solid fa-user"></i> {{username}}
+                </a>
+                <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item" type="button" (click)="cerrarSession()">Cerrar sesion</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
